@@ -25,3 +25,14 @@ body {
     text-wrap: balance;
   }
 }
+
+.inputText {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  width: 300px;
+}
+
+.btn {
+  padding: 20px;
+}
