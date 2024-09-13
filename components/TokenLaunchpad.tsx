@@ -1,13 +1,46 @@
-
-
+"use client"
+import { Keypair, sendAndConfirmTransaction, SystemProgram, Transaction } from "@solana/web3.js";
+import { useConnection, useWallet } from '@solana/wallet-adapter-react';
+import { MINT_SIZE, TOKEN_2022_PROGRAM_ID, createInitializeMint2Instruction, createMint, getMinimumBalanceForRentExemptMint } from "@solana/spl-token"
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 export function TokenLaunchpad() {
+    const { connection } = useConnection();
+    const wallet = useWallet();
 
-    function createToken() {
-        const name = (document.getElementById('name') as HTMLInputElement).value;
-        const symbol = (document.getElementById('symbol') as HTMLInputElement).value;
-        const image = (document.getElementById('image') as HTMLInputElement).value;
-        const initialSupply = (document.getElementById('initialSupply') as HTMLInputElement).value;
+    async function createToken() {
+        try {
+            if (!wallet.publicKey) {
+                console.log('Wallet not connected');
+                return;
+            }
+            
+            const mintKeypair = Keypair.generate();
+            const lamports = await getMinimumBalanceForRentExemptMint(connection);
+    
+            const transaction = new Transaction().add(
+                SystemProgram.createAccount({
+                    fromPubkey: wallet.publicKey,
+                    newAccountPubkey: mintKeypair.publicKey,
+                    space: MINT_SIZE,
+                    lamports,
+                    programId: TOKEN_2022_PROGRAM_ID,
+                }),
+                createInitializeMint2Instruction(mintKeypair.publicKey, 9, wallet.publicKey, wallet.publicKey, TOKEN_2022_PROGRAM_ID)
+            );
+                
+            transaction.feePayer = wallet.publicKey;
+            transaction.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
+
+            // sendAndConfirmTransaction(connection, transaction, [payer, keypair], confirmOptions)
+            transaction.partialSign(mintKeypair); // cuz launchpad k pass user k keypair ka access nahi hai isliye we use this
+    
+            await wallet.sendTransaction(transaction, connection);
+            console.log(`Token mint created at ${mintKeypair.publicKey.toBase58()}`);
+        } catch(err) {
+            alert(err)
+        }
     }
 
     return  <div style={{
@@ -18,10 +51,10 @@ export function TokenLaunchpad() {
         flexDirection: 'column'
     }}>
         <h1>Solana Token Launchpad</h1>
-        <input className='inputText' type='text' placeholder='Name'></input> <br />
-        <input className='inputText' type='text' placeholder='Symbol'></input> <br />
-        <input className='inputText' type='text' placeholder='Image URL'></input> <br />
-        <input className='inputText' type='text' placeholder='Initial Supply'></input> <br />
-        <button className='btn'>Create a token</button>
+        <Input className='inputText' type='text' placeholder='Name'></Input> <br />
+        <Input className='inputText' type='text' placeholder='Symbol'></Input> <br />
+        <Input className='inputText' type='text' placeholder='Image URL'></Input> <br />
+        <Input className='inputText' type='text' placeholder='Initial Supply'></Input> <br />
+        <Button variant={"outline"} onClick={createToken} className='btn'>Create a token</Button>
     </div>
 }

@@ -2,16 +2,14 @@ import { WalletDisconnectButton, WalletMultiButton } from "@solana/wallet-adapte
 
 
 export default function Appbar() {
-    return <div className="flex items-center justify-between border-b border-black p-1">
-        <div className="p-2 text-2xl font-bold">
-            NFT Launchpad
-        </div>
-        <div className="flex items-center justify-center">
-            <div className='p-4 flex justify-center'><WalletMultiButton/></div>
-            <div className="pr-4">
-            <WalletDisconnectButton/>
+    return <div className="flex items-center justify-center border-b border-white p-4">
+        <div className="flex items-center justify-between space-x-20">
+            <div>
+                <WalletMultiButton/>
             </div>
-            {/* <div className="pr-5"><ModeToggle/></div> */}
+            <div>
+                <WalletDisconnectButton/>
+            </div>
         </div>
     </div>
 }

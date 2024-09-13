@@ -15,6 +15,7 @@ import {
 // Default styles that can be overridden by your app
 import '@solana/wallet-adapter-react-ui/styles.css';
 import Appbar from "@/components/Appbar";
+import { SessionProvider } from "next-auth/react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -47,14 +48,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-       <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
-                <WalletProvider wallets={[]} autoConnect>
-                <WalletModalProvider>
-                    <Appbar/>
-                      {children} 
-                </WalletModalProvider>
-                </WalletProvider>
-            </ConnectionProvider>
+      <SessionProvider>
+              <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
+                  <WalletProvider wallets={[]} autoConnect>
+                  <WalletModalProvider>
+                      <Appbar/>
+                        {children} 
+                  </WalletModalProvider>
+                  </WalletProvider>
+              </ConnectionProvider>
+      </SessionProvider>
       </body>
     </html>
   );
