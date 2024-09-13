@@ -1,101 +1,100 @@
-// import { Keypair, Transaction, Connection } from "@solana/web3.js";
-// import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-// import {
-//   createGenericFile,
-//   generateSigner,
-//   percentAmount,
-//   signerIdentity,
-//   sol,
-// } from "@metaplex-foundation/umi";
-// import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
-// import { createProgrammableNft } from "@metaplex-foundation/mpl-token-metadata";
-// import { Button } from "./ui/button";
-// import { Input } from "./ui/input";
+"use client";
 
-// // Create the wrapper function
-// const createNft = async (
-//   connection: Connection,
-//   publicKey: PublicKey,
-//   signTransaction: (transaction: Transaction) => Promise<Transaction>,
-//   sendTransaction: (transaction: Transaction) => Promise<string>
-// ) => {
-//   try {
-//     // Initialize UMI for NFT creation
-//     const umi = createUmi(connection);
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
-//     // Define the NFT metadata (replace these with real values from user input)
-//     const nftMetadata = {
-//       name: "Your NFT Name",
-//       symbol: "NFT",
-//       uri: "https://link-to-your-nft-metadata", // Link to the metadata (JSON)
-//       sellerFeeBasisPoints: 500, // Royalty fee (5%)
-//     };
+// Define form validation schema with zod
+const nftFormSchema = z.object({
+    name: z.string().min(1, { message: "Name is required" }),
+    imageUrl: z.string().url({ message: "Image URL must be a valid URL" }),
+    metadataUrl: z.string().url({ message: "Metadata URL must be a valid URL" }),
+});
 
-//     // Create an NFT mint
-//     const mintKeypair = Keypair.generate();
-//     const mintAuthority = publicKey;
+export interface NFTFormProps {
+    onSubmit: (data: { name: string; imageUrl: string; metadataUrl: string }) => void;
+}
 
-//     // Create the NFT mint instructions
-//     const { instructions } = await createProgrammableNft({
-//       umi,
-//       payer: publicKey,
-//       mintAuthority,
-//       freezeAuthority: publicKey,
-//       name: nftMetadata.name,
-//       symbol: nftMetadata.symbol,
-//       uri: nftMetadata.uri,
-//       sellerFeeBasisPoints: nftMetadata.sellerFeeBasisPoints,
-//     });
+export function NFTForm({ onSubmit }: NFTFormProps) {
+    // React Hook Form integration with Zod validation
+    const form = useForm({
+        resolver: zodResolver(nftFormSchema),
+        defaultValues: {
+            name: '',
+            imageUrl: '',
+            metadataUrl: '',
+        },
+    });
 
-//     // Create and sign transaction
-//     const transaction = new Transaction().add(...instructions);
+    // Form submission handler
+    const handleFormSubmit = (values: z.infer<typeof nftFormSchema>) => {
+        onSubmit(values);
+    };
 
-//     transaction.feePayer = publicKey;
-//     transaction.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
+    return (
+        <div className="flex justify-center items-center h-auto">
+            <div className="flex items-center justify-center border border-white bg-white max-w-xl w-full mt-10 mb-24 rounded-md text-black">
+                <Form {...form}>
+                    <form onSubmit={form.handleSubmit(handleFormSubmit)} className="rounded-lg p-12 w-[80%] space-y-4">
+                        <h1>Create New NFT</h1>
 
-//     // Sign the transaction
-//     const signedTransaction = await signTransaction(transaction);
+                        {/* Name Field */}
+                        <FormField
+                            control={form.control}
+                            name="name"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Name</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="Enter NFT Name" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
 
-//     // Send the transaction
-//     const signature = await sendTransaction(signedTransaction);
-//     console.log(`NFT Minted at: ${mintKeypair.publicKey.toBase58()}`);
-//     console.log(`Transaction signature: ${signature}`);
-//   } catch (err) {
-//     console.error("Failed to mint NFT:", err);
-//   }
-// };
+                        {/* Image URL Field */}
+                        <FormField
+                            control={form.control}
+                            name="imageUrl"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Image URL</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="Enter Image URL" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
 
-// // NftLaunchpad component
-// export function NftLaunchpad() {
-//   const { connection } = useConnection();
-//   const { publicKey, signTransaction, sendTransaction } = useWallet();
+                        {/* Metadata URL Field */}
+                        <FormField
+                            control={form.control}
+                            name="metadataUrl"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Metadata URL</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="Enter Metadata URL" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
 
-//   const handleMintNFT = () => {
-//     if (publicKey && signTransaction && sendTransaction) {
-//       createNft(connection, publicKey, signTransaction, sendTransaction);
-//     } else {
-//       console.log("Wallet not connected or missing methods");
-//     }
-//   };
+                        {/* Submit Button */}
+                        <div className="flex items-center justify-center">
+                            <Button type="submit" variant="outline">Mint NFT</Button>
+                        </div>
+                    </form>
+                </Form>
+            </div>
+        </div>
+    );
+}
 
-//   return (
-//     <div
-//       style={{
-//         height: "100vh",
-//         display: "flex",
-//         justifyContent: "center",
-//         alignItems: "center",
-//         flexDirection: "column",
-//       }}
-//     >
-//       <h1>Solana NFT Launchpad</h1>
-//       <Input className="inputText" type="text" placeholder="NFT Name" /> <br />
-//       <Input className="inputText" type="text" placeholder="Symbol" /> <br />
-//       <Input className="inputText" type="text" placeholder="Image URL" /> <br />
-//       <Input className="inputText" type="text" placeholder="Metadata URI" /> <br />
-//       <Button variant={"outline"} onClick={handleMintNFT} className="btn">
-//         Mint NFT
-//       </Button>
-//     </div>
-//   );
-// }
+export default NFTForm;
