@@ -57,7 +57,7 @@ export default function RootLayout({
           >
                <SessionProvider>
                <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
-                  <WalletProvider wallets={[]} autoConnect>
+                  <WalletProvider wallets={[]}>
                   <WalletModalProvider>
                       <Appbar/>
                         {children} 

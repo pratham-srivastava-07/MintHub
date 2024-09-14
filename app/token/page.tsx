@@ -1,4 +1,4 @@
-import { TokenLaunchpad } from "@/components/TokenLaunchpad";
+import { TokenLaunchpad } from "@/pages/TokenLaunchpad";
 
 export default function() {
     return <div>

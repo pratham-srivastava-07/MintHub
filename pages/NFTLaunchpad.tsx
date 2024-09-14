@@ -18,7 +18,7 @@ export interface NFTFormProps {
     onSubmit: (data: { name: string; imageUrl: string; metadataUrl: string }) => void;
 }
 
-export function NFTForm({ onSubmit }: NFTFormProps) {
+export default function NFTForm({ onSubmit }: NFTFormProps) {
     // React Hook Form integration with Zod validation
     const form = useForm({
         resolver: zodResolver(nftFormSchema),
@@ -97,4 +97,4 @@ export function NFTForm({ onSubmit }: NFTFormProps) {
     );
 }
 
-export default NFTForm;
+

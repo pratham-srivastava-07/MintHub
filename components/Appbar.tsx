@@ -1,7 +1,9 @@
 import { WalletDisconnectButton, WalletMultiButton } from "@solana/wallet-adapter-react-ui";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { SiLaunchpad } from "react-icons/si";
 import { ModeToggle } from "./ModeToggle";
+import { Divide } from "lucide-react";
+import { Button } from "./ui/button";
 
 export default function Appbar() {
     const {data: session} = useSession();
@@ -15,6 +17,12 @@ export default function Appbar() {
                 <WalletDisconnectButton/>
             </div>
         </div>
+        <div className="ml-auto flex items-center space-x-4">
+            {session?.user && <div>
+                    <Button variant={"link"} onClick={()=> signOut()}>Log Out</Button>
+                </div>}
+            <ModeToggle />
+        </div>
     </div>}
     {
         !session?.user && <div className="flex items-center justify-between border-b border-white p-4">
@@ -27,8 +35,6 @@ export default function Appbar() {
            
         </div>
     }
-     <div className="ml-auto">
-        <ModeToggle />
-    </div>
+     
     </>
 }

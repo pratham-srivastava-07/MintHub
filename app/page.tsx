@@ -23,11 +23,6 @@ export default function Home() {
         </div>
       </>
      }
-     {
-      session?.user && <>
-        <Button variant={"outline"} onClick={()=> signOut()}>Log out</Button>
-      </>
-     }
    </div>
   );
 }

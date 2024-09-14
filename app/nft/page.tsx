@@ -1,6 +1,6 @@
 "use client"
-import NFTForm from "@/components/NFTLaunchpad";
-import { TokenLaunchpad } from "@/components/TokenLaunchpad";
+import NFTForm from "@/pages/NFTLaunchpad";
+
 
 export default function() {
     return <div>

@@ -5,9 +5,10 @@ import { MINT_SIZE, TOKEN_2022_PROGRAM_ID, createInitializeMint2Instruction, get
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
+
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 // Define form validation schema with zod
 const formSchema = z.object({
@@ -67,8 +68,10 @@ export function TokenLaunchpad() {
 
             await wallet.sendTransaction(transaction, connection);
             console.log(`Token mint created at ${mintKeypair.publicKey.toBase58()}`);
+            alert("Token mint created");
         } catch (err) {
             console.error(err);
+            alert(err);
         }
     }
 
@@ -146,7 +149,7 @@ export function TokenLaunchpad() {
 
                     {/* Submit Button */}
                     <div className="flex items-center justify-center">
-                        <Button type="submit" variant={"outline"}>Create Token</Button>
+                        <Button type="submit" className="text-white" variant={"outline"}>Create Token</Button>
                     </div>
                 </form>
             </Form>
