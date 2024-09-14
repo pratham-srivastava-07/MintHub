@@ -2,40 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-.inputText {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 10px;
-  width: 300px;
-}
-
-.btn {
-  padding: 20px;
-}
 
 @layer base {
   :root {

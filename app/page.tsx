@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button";
 
-import { useSession, signIn } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
@@ -21,6 +21,11 @@ export default function Home() {
         <Button variant={"outline"} onClick={()=> {router.push("/token")}}>Launch Token</Button>
         <Button variant={"outline"} onClick={()=> {router.push("/nft")}}>Launch NFT</Button>
         </div>
+      </>
+     }
+     {
+      session?.user && <>
+        <Button variant={"outline"} onClick={()=> signOut()}>Log out</Button>
       </>
      }
    </div>

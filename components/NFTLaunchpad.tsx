@@ -41,7 +41,7 @@ export function NFTForm({ onSubmit }: NFTFormProps) {
                     <form onSubmit={form.handleSubmit(handleFormSubmit)} className="rounded-lg p-12 w-[80%] space-y-4">
                         <h1>Create New NFT</h1>
 
-                        {/* Name Field */}
+                       
                         <FormField
                             control={form.control}
                             name="name"
@@ -56,7 +56,7 @@ export function NFTForm({ onSubmit }: NFTFormProps) {
                             )}
                         />
 
-                        {/* Image URL Field */}
+                       
                         <FormField
                             control={form.control}
                             name="imageUrl"
@@ -71,7 +71,7 @@ export function NFTForm({ onSubmit }: NFTFormProps) {
                             )}
                         />
 
-                        {/* Metadata URL Field */}
+                       
                         <FormField
                             control={form.control}
                             name="metadataUrl"
