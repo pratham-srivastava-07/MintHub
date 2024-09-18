@@ -15,7 +15,7 @@ const formSchema = z.object({
     name: z.string().min(1, { message: "Name is required" }),
     symbol: z.string().min(1, { message: "Symbol is required" }),
     imageUrl: z.string().url({ message: "Image URL must be a valid URL" }),
-    initialSupply: z.number().positive({ message: "Initial Supply must be positive" }),
+    initialSupply: z.preprocess((val) => Number(val), z.number().positive({message: "Initial Supply must be positive"}))
 });
 
 export function TokenLaunchpad() {
