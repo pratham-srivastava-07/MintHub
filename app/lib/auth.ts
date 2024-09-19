@@ -1,6 +1,6 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import { client } from "./db";
-import bcrypt from "bcrypt"
+import bcrypt from "bcryptjs"
 import NextAuth from "next-auth/next";
 import Email from "next-auth/providers/email";
 export const authOptions =  {
