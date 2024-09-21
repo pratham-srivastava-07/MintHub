@@ -18,8 +18,12 @@ export default function Home() {
      {
       session?.user && <>
         <div className="flex items-center justify-center space-x-4">
+        
         <Button variant={"outline"} onClick={()=> {router.push("/token")}}>Launch Token</Button>
-        <Button variant={"outline"} onClick={()=> {router.push("/nft")}}>Launch NFT</Button>
+       
+        <Button variant={"outline"} onClick={()=> {
+          console.log("error")
+          router.push("/nft")}}>Launch NFT</Button>
         </div>
       </>
      }
