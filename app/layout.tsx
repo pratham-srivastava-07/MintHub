@@ -14,7 +14,6 @@ import {
 
 // Default styles that can be overridden by your app
 import '@solana/wallet-adapter-react-ui/styles.css';
-import Appbar from "@/components/Appbar";
 import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 
@@ -45,9 +44,10 @@ export default function RootLayout({
       return null; 
   }
   return (
-    <html lang="en">
+    <html lang="en" style={{overflow: "auto"}}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        
       >
          <ThemeProvider
             attribute="class"
