@@ -88,7 +88,7 @@ export default function NFTForm({ onSubmit }: NFTFormProps) {
 
                         {/* Submit Button */}
                         <div className="flex items-center justify-center">
-                            <Button type="submit" variant="outline">Mint NFT</Button>
+                            <Button type="submit" className="text-white" variant="outline">Mint NFT</Button>
                         </div>
                     </form>
                 </Form>
