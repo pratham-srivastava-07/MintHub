@@ -1,12 +1,13 @@
-import Action from "./Action";
-import Appbar from "./Appbar";
-import Feature from "./Feature";
-import Footer from "./Footer";
-import Header from "./Header";
-import Hero from "./Hero";
+import Action from "../content/Action";
+
+import Feature from "../content/Feature";
+import Hero from "../content/Hero";
+import Footer from "../layout/Footer";
+import Header from "../layout/Header";
+
 
 // pages/index.js or pages/index.tsx
-export default function Main() {
+export default function MainPage() {
     return (
       <div className="bg-gray-100">
         <div>

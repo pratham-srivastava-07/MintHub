@@ -1,12 +1,8 @@
 "use client"
-import Appbar from "@/components/Appbar";
-import Main from "@/components/Main";
-import Page from "@/components/Page";
-import { Button } from "@/components/ui/button";
-
-import { useSession, signIn, signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
-
+import Appbar from "@/components/layout/Appbar";
+import { useSession } from "next-auth/react";
+import MainPage from "@/components/tokens/MainPage";
+import Cards from "@/pages/Page";
 
 export default function Home() {
   const {data: session} = useSession()
@@ -14,11 +10,11 @@ export default function Home() {
   return(
     <div>
        {
-        session ? <div>
-          <Appbar />
-          <Page />
-        </div> : 
-        <Main />
+       session ?  <div className="">
+        <Appbar/>
+        <Cards />
+       </div> : <MainPage />
+        //
        }
     </div>
   );

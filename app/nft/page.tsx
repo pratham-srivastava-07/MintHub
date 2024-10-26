@@ -1,5 +1,5 @@
 "use client"
-import NFTForm from "@/pages/NFTLaunchpad";
+import NFTForm from "@/pages/launchpad/NFTLaunchpad";
 
 
 export default function() {

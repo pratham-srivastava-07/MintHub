@@ -1,5 +1,6 @@
 import { signIn } from "next-auth/react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
+
 
 export default function Header() {
     return <header className="bg-white shadow-md">
@@ -9,7 +10,7 @@ export default function Header() {
         <h1 className="text-2xl font-bold text-gray-800">Minthub</h1>
       </div>
       <div>
-        <Button  className="rounded-full p-3" onClick={() => signIn()} variant={"outline"}>Signin</Button>
+        <Button className="rounded-full p-3" onClick={() => signIn()} variant={"outline"}>Signin</Button>
       </div>
     </div>
   </header>

@@ -1,5 +1,5 @@
 import { signIn } from "next-auth/react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { motion } from "framer-motion";
 
 export default function Action() {

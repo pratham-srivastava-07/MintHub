@@ -1,9 +1,11 @@
 import { WalletDisconnectButton, WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { signOut, useSession } from "next-auth/react";
 import { SiLaunchpad } from "react-icons/si";
-import { ModeToggle } from "./ModeToggle";
+
 import { Divide } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
+import { ModeToggle } from "../content/ModeToggle";
+
 
 export default function Appbar() {
     const {data: session} = useSession();

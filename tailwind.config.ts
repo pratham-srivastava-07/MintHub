@@ -9,6 +9,18 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		keyframes: {
+			smooth: {
+			  "0%": { transform: "translateY(-5px)" },
+	 
+			  "50%": { transform: "translateY(5px)" },
+	 
+			  "100%": { transform: "translateY(-5px)" },
+			},
+		  },
+		  animation: {
+			float: "smooth 3s ease-in-out infinite",
+		  },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
