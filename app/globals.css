@@ -72,3 +72,9 @@
 body {
   padding-right: 0 !important;
 }
+
+
+@keyframes pulsingGlow {
+  0%, 100% { background-size: 150% 150%; }
+  50% { background-size: 170% 170%; }
+}

@@ -1,6 +1,4 @@
 "use client"
-
-
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -17,6 +15,7 @@ import '@solana/wallet-adapter-react-ui/styles.css';
 import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { AnimatePresence, motion } from "framer-motion";
+import Appbar from "@/components/layout/Appbar";
 
 
 const geistSans = localFont({
@@ -36,20 +35,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-      setMounted(true);
-  }, []);
-
-  if (!mounted) {
-      return null; 
-  }
+  
   return (
     <html lang="en" style={{overflow: "auto"}}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <body
+  className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[radial-gradient(circle,_#000000,_#111111,_#222222,_#000000)] bg-[length:150%_150%] animate-[pulsingGlow_8s_ease-in-out_infinite]`}
+  style={{ color: 'white' }}
+>
           <AnimatePresence>
             <motion.div>
                 <ThemeProvider
@@ -62,6 +54,7 @@ export default function RootLayout({
                   <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
                       <WalletProvider wallets={[]}>
                   <WalletModalProvider>
+                        <Appbar />
                         {children} 
                   </WalletModalProvider>
                   </WalletProvider>
