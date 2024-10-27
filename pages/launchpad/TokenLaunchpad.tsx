@@ -18,7 +18,7 @@ const formSchema = z.object({
     initialSupply: z.preprocess((val) => Number(val), z.number().positive({message: "Initial Supply must be positive"}))
 });
 
-export function TokenLaunchpad() {
+export function TokenLaunchpad({onCreateToken}: {onCreateToken: any }) {
     const { connection } = useConnection();
     const wallet = useWallet();
 
