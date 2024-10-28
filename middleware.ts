@@ -10,4 +10,4 @@ export default withAuth(
 );
 
 
-export const config = { matcher: ["/select", "/token", "/nft"] };
+export const config = { matcher: ["/select-token", "/token", "/nft"] };

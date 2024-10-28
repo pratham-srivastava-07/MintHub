@@ -10,7 +10,6 @@ async function main() {
         }, 
         update: {},
         create: {
-            name: 'John',
             email: 'pratham@gmail.com',
             password: await bcrypt.hash('123456', 6)
         }
