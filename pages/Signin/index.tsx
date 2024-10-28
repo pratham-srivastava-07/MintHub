@@ -10,7 +10,7 @@ const Signin = () => {
   
 
   const handleAuthWithGithub = async () => {
-    await signIn("github", { callbackUrl: "/dashboard", redirect: false });
+    await signIn("github", { callbackUrl: "/select-token", redirect: false });
   }
 
   return (
