@@ -18,7 +18,7 @@ export default function Slider() {
     useEffect(() => {
         let controls;
         //@ts-ignore
-        let finalPos = -width / 2 - 3
+        let finalPos = -width / 2 - 8
 
         controls = animate(translation, [0, finalPos], {
             ease: "linear",
