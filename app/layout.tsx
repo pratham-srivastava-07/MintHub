@@ -16,7 +16,6 @@ import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { AnimatePresence, motion } from "framer-motion";
 import Appbar from "@/components/layout/Appbar";
-import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 
 
 const geistSans = localFont({

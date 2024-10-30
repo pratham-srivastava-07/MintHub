@@ -10,17 +10,19 @@ export default function Slider() {
         "/icon.webp",
         "/nft-icon.webp"
     ];
-    let [ref, {width}] = useMeasure()
+    const [ref, {width}] = useMeasure()
     // const [overlay, setOverlay] = useState(false)
 
     const translation = useMotionValue(0)
 
     useEffect(() => {
-        let controls;
-        //@ts-ignore
-        let finalPos = -width / 2 - 8
+        
+        
+        // this gives error
+        if(width) {
+            const finalPos = - width / 2 - 8
 
-        controls = animate(translation, [0, finalPos], {
+        const controls = animate(translation, [0, finalPos], {
             ease: "linear",
             duration: 25,
             repeat: Infinity,
@@ -29,6 +31,7 @@ export default function Slider() {
         })
 
         return controls.stop;
+        }
     }, [translation, width])
 
     return <motion.div className="py-8">

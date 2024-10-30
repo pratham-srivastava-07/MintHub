@@ -35,51 +35,51 @@ export default function NFTForm({ onSubmit }: NFTFormProps) {
     };
 
     return (
-        <div className="flex justify-center items-center h-auto">
-            <div className="flex items-center justify-center border border-white bg-white max-w-xl w-full mt-10 mb-24 rounded-md text-black">
+        <div className="flex justify-center items-center h-auto bg-gray-900 py-10">
+            <div className="flex items-center justify-center border border-gray-700 bg-gray-800 max-w-xl w-full mt-10 mb-24 rounded-lg shadow-lg text-white">
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(handleFormSubmit)} className="rounded-lg p-12 w-[80%] space-y-4">
-                        <h1>Create New NFT</h1>
+                    <form onSubmit={form.handleSubmit(handleFormSubmit)} className="rounded-lg p-8 w-[90%] space-y-6">
+                        <h1 className="text-3xl font-bold text-center mb-6">Create New NFT</h1>
 
-                       
+                        {/* Name Field */}
                         <FormField
                             control={form.control}
                             name="name"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Name</FormLabel>
+                                    <FormLabel className="text-lg">Name</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Enter NFT Name" {...field} />
+                                        <Input placeholder="Enter NFT Name" {...field} className="p-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white" />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
 
-                       
+                        {/* Image URL Field */}
                         <FormField
                             control={form.control}
                             name="imageUrl"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Image URL</FormLabel>
+                                    <FormLabel className="text-lg">Image URL</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Enter Image URL" {...field} />
+                                        <Input placeholder="Enter Image URL" {...field} className="p-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white" />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
 
-                       
+                        {/* Metadata URL Field */}
                         <FormField
                             control={form.control}
                             name="metadataUrl"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Metadata URL</FormLabel>
+                                    <FormLabel className="text-lg">Metadata URL</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Enter Metadata URL" {...field} />
+                                        <Input placeholder="Enter Metadata URL" {...field} className="p-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white" />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -88,7 +88,9 @@ export default function NFTForm({ onSubmit }: NFTFormProps) {
 
                         {/* Submit Button */}
                         <div className="flex items-center justify-center">
-                            <Button type="submit" className="text-white" variant="outline">Mint NFT</Button>
+                            <Button type="submit" className="bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 px-4 rounded-md shadow-md transition duration-300 hover:shadow-lg">
+                                Mint NFT
+                            </Button>
                         </div>
                     </form>
                 </Form>
@@ -96,5 +98,3 @@ export default function NFTForm({ onSubmit }: NFTFormProps) {
         </div>
     );
 }
-
-

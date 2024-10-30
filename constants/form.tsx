@@ -1,8 +1,10 @@
 
 export type AuthFormProps = {
+    label?: string
     id: string,
     inputType: "select" | "input",
     placeholder: string,
+    
     name: string,
     type: string
 }

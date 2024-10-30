@@ -1,5 +1,5 @@
 "use client"
-import { Keypair, sendAndConfirmTransaction, SystemProgram, Transaction } from "@solana/web3.js";
+import { Keypair, PublicKey, SystemProgram, Transaction } from "@solana/web3.js";
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { MINT_SIZE, TOKEN_2022_PROGRAM_ID, createInitializeMint2Instruction, getMinimumBalanceForRentExemptMint } from "@solana/spl-token"
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,8 +17,7 @@ const formSchema = z.object({
     imageUrl: z.string().url({ message: "Image URL must be a valid URL" }),
     initialSupply: z.preprocess((val) => Number(val), z.number().positive({message: "Initial Supply must be positive"}))
 });
-
-export function TokenLaunchpad({onCreateToken}: {onCreateToken: any }) {
+export default function TokenLaunchpad({ onCreateToken }: { onCreateToken: (tokenMint: PublicKey | null) => void }) {
     const { connection } = useConnection();
     const wallet = useWallet();
 
@@ -43,7 +42,9 @@ export function TokenLaunchpad({onCreateToken}: {onCreateToken: any }) {
             
             const mintKeypair = Keypair.generate();
             const lamports = await getMinimumBalanceForRentExemptMint(connection);
-    
+            console.log(onCreateToken)
+            console.log(values);
+            
             const transaction = new Transaction().add(
                 SystemProgram.createAccount({
                     fromPubkey: wallet.publicKey,

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Feature() {
   return (
@@ -16,7 +17,7 @@ export default function Feature() {
         <motion.div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8" initial={{ y: 50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
           {/* Feature 1 */}
           <div className="p-8 bg-white shadow-md rounded-lg">
-            <img src="/feature1.png" alt="Feature 1" className="w-16 h-16 mx-auto" />
+            <Image src="/feature1.png" alt="Feature 1" width={16} height={16} className=" mx-auto" />
             <h4 className="mt-4 text-xl font-semibold text-gray-800">Secure & Reliable</h4>
             <p className="mt-2 text-gray-600">
               Our platform uses top-notch security practices to keep your assets safe.
@@ -24,7 +25,7 @@ export default function Feature() {
           </div>
           {/* Feature 2 */}
           <div className="p-8 bg-white shadow-md rounded-lg">
-            <img src="/feature2.png" alt="Feature 2" className="w-16 h-16 mx-auto" />
+            <Image src="/feature2.png" alt="Feature 2" width={16} height={16} className=" mx-auto" />
             <h4 className="mt-4 text-xl font-semibold text-gray-800">Fast Deployments</h4>
             <p className="mt-2 text-gray-600">
               Deploy your NFTs and tokens quickly without hassle.
@@ -32,7 +33,7 @@ export default function Feature() {
           </div>
           {/* Feature 3 */}
           <div className="p-8 bg-white shadow-md rounded-lg">
-            <img src="/feature3.png" alt="Feature 3" className="w-16 h-16 mx-auto" />
+            <Image src="/feature3.png" alt="Feature 3" width={16} height={16} className=" mx-auto" />
             <h4 className="mt-4 text-xl font-semibold text-gray-800">User-Friendly Interface</h4>
             <p className="mt-2 text-gray-600">
               Our easy-to-use platform ensures a seamless experience for everyone.

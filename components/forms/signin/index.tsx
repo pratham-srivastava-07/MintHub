@@ -35,7 +35,7 @@ const SignInForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 mt-10">
-        {GROUP_CONSTANTS.signInForm.map((field: any) => (
+        {GROUP_CONSTANTS.signInForm.map((field) => (
           <FormField
             key={field.id}
             control={form.control}

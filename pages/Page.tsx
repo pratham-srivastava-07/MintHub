@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { CardContainer, CardItem } from "@/components/ui/new-card";
@@ -17,7 +17,7 @@ export default function Cards() {
     return (
         <div className="pt-16">
             <div className="flex flex-col items-center justify-center space-y-8">
-                <div className="flex space-x-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8"> {/* Updated for responsive grid layout */}
                     {/* Launch Token Card */}
                     <CardContainer className="cursor-pointer">
                         <motion.div

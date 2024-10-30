@@ -2,10 +2,11 @@
 import NFTForm from "@/pages/launchpad/NFTLaunchpad";
 
 
-export default function() {
+export default function NFTPage() {
     return <div>
         <NFTForm onSubmit={function (data: { name: string; imageUrl: string; metadataUrl: string; }): void {
-            throw new Error("Function not implemented.");
+            console.log(data)
+            // throw new Error("Function not implemented.");
         } }/>
     </div>
 }

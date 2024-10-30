@@ -1,5 +1,5 @@
 
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { SiLaunchpad } from "react-icons/si";
 import { Button } from "../ui/button";
 import Link from "next/link";
