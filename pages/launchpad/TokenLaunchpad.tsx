@@ -81,79 +81,81 @@ export function TokenLaunchpad({onCreateToken}: {onCreateToken: any }) {
     };
 
     return (
-        <div className="flex justify-center items-center h-auto">
-        <div className="flex items-center justify-center border border-white bg-white max-w-xl w-full mt-10 mb-24 rounded-md text-black">
-            <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="rounded-lg p-12 w-[80%]  space-y-4">
-                    <h1>Solana Token Launchpad</h1>
+        <div className="flex justify-center items-center h-auto bg-gray-900 py-10">
+    <div className="flex items-center justify-center border border-gray-700 bg-gray-800 max-w-xl w-full mt-10 mb-24 rounded-lg shadow-lg text-white">
+        <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="rounded-lg p-8 w-[90%] space-y-6">
+                <h1 className="text-3xl font-bold text-center mb-6">Solana Token Launchpad</h1>
 
-                    {/* Name Field */}
-                    <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Name</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="Enter Token Name" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+                {/* Name Field */}
+                <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel className="text-lg">Name</FormLabel>
+                            <FormControl>
+                                <Input placeholder="Enter Token Name" {...field} className="p-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white" />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
 
-                    {/* Symbol Field */}
-                    <FormField
-                        control={form.control}
-                        name="symbol"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Symbol</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="Enter Token Symbol" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+                {/* Symbol Field */}
+                <FormField
+                    control={form.control}
+                    name="symbol"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel className="text-lg">Symbol</FormLabel>
+                            <FormControl>
+                                <Input placeholder="Enter Token Symbol" {...field} className="p-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white" />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
 
-                    {/* Image URL Field */}
-                    <FormField
-                        control={form.control}
-                        name="imageUrl"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Image URL</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="Enter Image URL" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+                {/* Image URL Field */}
+                <FormField
+                    control={form.control}
+                    name="imageUrl"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel className="text-lg">Image URL</FormLabel>
+                            <FormControl>
+                                <Input placeholder="Enter Image URL" {...field} className="p-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white" />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
 
-                    {/* Initial Supply Field */}
-                    <FormField
-                        control={form.control}
-                        name="initialSupply"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Initial Supply</FormLabel>
-                                <FormControl>
-                                    <Input type="number" placeholder="Enter Initial Supply" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+                {/* Initial Supply Field */}
+                <FormField
+                    control={form.control}
+                    name="initialSupply"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel className="text-lg">Initial Supply</FormLabel>
+                            <FormControl>
+                                <Input type="number" placeholder="Enter Initial Supply" {...field} className="p-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white" />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
 
-                    {/* Submit Button */}
-                    <div className="flex items-center justify-center">
-                        <Button type="submit" className="text-white" variant={"outline"}>Create Token</Button>
-                    </div>
-                </form>
-            </Form>
-      </div>
-      </div>
+                {/* Submit Button */}
+                <div className="flex items-center justify-center">
+                    <Button type="submit" className="bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 px-4 rounded-md shadow-md transition duration-300 hover:shadow-lg">
+                        Create Token
+                    </Button>
+                </div>
+            </form>
+        </Form>
+    </div>
+</div>
     );
 }

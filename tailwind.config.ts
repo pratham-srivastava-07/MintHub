@@ -1,3 +1,8 @@
+const {
+	default: flattenColorPalette,
+  } = require("tailwindcss/lib/util/flattenColorPalette");
+
+
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -10,6 +15,14 @@ const config: Config = {
   theme: {
   	extend: {
 		keyframes: {
+			aurora: {
+				from: {
+				  backgroundPosition: "50% 50%, 50% 50%",
+				},
+				to: {
+				  backgroundPosition: "350% 50%, 350% 50%",
+				},
+			  },
 			smooth: {
 			  "0%": { transform: "translateY(-5px)" },
 	 
@@ -20,6 +33,7 @@ const config: Config = {
 		  },
 		  animation: {
 			float: "smooth 3s ease-in-out infinite",
+			aurora: "aurora 60s linear infinite",
 		  },
   		colors: {
   			background: 'hsl(var(--background))',
@@ -72,4 +86,16 @@ const config: Config = {
   },
   plugins: [require("tailwindcss-animate")],
 };
+
+function addVariablesForColors({ addBase, theme }: any) {
+	let allColors = flattenColorPalette(theme("colors"));
+	let newVars = Object.fromEntries(
+	  Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+	);
+   
+	addBase({
+	  ":root": newVars,
+	});
+  }
+
 export default config;

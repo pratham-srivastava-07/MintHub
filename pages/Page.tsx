@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { CardContainer, CardItem } from "@/components/ui/card";
+import { CardContainer, CardItem } from "@/components/ui/new-card";
 import Image from "next/image";
 import { motion } from "framer-motion";
 

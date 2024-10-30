@@ -2,7 +2,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 
-import React, { FC, useEffect, useMemo, useState } from 'react';
+import React from 'react';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 
 import {
@@ -16,6 +16,7 @@ import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { AnimatePresence, motion } from "framer-motion";
 import Appbar from "@/components/layout/Appbar";
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 
 
 const geistSans = localFont({

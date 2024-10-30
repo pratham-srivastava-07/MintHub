@@ -13,7 +13,7 @@ export default function Appbar() {
         <div className="flex justify-between items-center p-4 pt-7">
             <div className="title flex justify-center items-center space-x-3 pl-10">
                 <SiLaunchpad />
-                <div className="font-bold text-2xl ">Minthub</div>
+                <Link href={"/"}><div className="font-bold text-2xl cursor-pointer">Minthub</div></Link>
             </div>
             <div className="signin flex justify-center items-center gap-7 pr-10">
 
