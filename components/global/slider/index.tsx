@@ -8,7 +8,10 @@ export default function Slider() {
     const images = [
         "/]solana.webp",
         "/icon.webp",
-        "/nft-icon.webp"
+        "/nft-icon.webp",
+        "/popcat.webp",
+        "/pyusd.webp",
+        "/usdt.webp"
     ];
     const [ref, {width}] = useMeasure()
     // const [overlay, setOverlay] = useState(false)
@@ -24,7 +27,7 @@ export default function Slider() {
 
         const controls = animate(translation, [0, finalPos], {
             ease: "linear",
-            duration: 25,
+            duration: 50,
             repeat: Infinity,
             repeatType: "loop",
             repeatDelay: 0
