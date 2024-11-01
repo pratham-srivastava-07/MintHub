@@ -10,7 +10,7 @@ import UserAuth from "../content/UserAuth";
 export default function Appbar() {
     const {data: session} = useSession()
     return <div>
-        <div className="flex justify-between items-center p-4 pt-7">
+        <div className="flex justify-between items-center p-4 pt-7 sm:gap-3">
             <div className="title flex justify-center items-center space-x-3 pl-10">
                 <SiLaunchpad />
                 <Link href={"/"}><div className="font-bold text-2xl cursor-pointer">Minthub</div></Link>
