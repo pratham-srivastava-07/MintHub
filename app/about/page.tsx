@@ -1,8 +1,8 @@
-import About from "@/pages/about-page";
+import EnhancedAboutSection from "@/components/content/AboutSection";
 
 
 export default function AboutPage() {
     return <div>
-        <About />
+        =<EnhancedAboutSection />
     </div>
 }
