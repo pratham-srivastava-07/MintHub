@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![image](https://github.com/user-attachments/assets/129d8731-7f7c-4314-bac3-e1d6d906281a)
+
+
+# MintHub
+
+MintHub is an NFT launchpad that enables creators to launch and distribute tokens effortlessly. Built for scalability and security, it simplifies the minting process with a seamless user experience.
+
+## Features
+- **Effortless Minting**: Streamlined process for creating and launching NFTs on Solana.
+- **Scalability**: Designed to handle high volumes of transactions efficiently.
+- **Security**: Implements best practices to ensure safe token distribution.
+- **User-Friendly**: Intuitive interface for creators and collectors.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js (Latest LTS version recommended)
+- npm or yarn
+- Solana CLI
+- Phantom Wallet or any Solana-compatible wallet
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Installation
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/pratham-srivastava-07/Minthub.git
+   cd minthub
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+   or
+   ```sh
+   yarn install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Running the Project
+1. Start the development server:
+   ```sh
+   npm run dev
+   ```
+2. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Solana Integration
+MintHub interacts with the Solana blockchain to facilitate NFT minting and distribution.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Connecting Wallet
+Ensure you have Phantom or another Solana-compatible wallet installed. The application will prompt you to connect your wallet for transactions.
 
-## Learn More
+### Minting NFTs
+1. Select or upload your NFT metadata.
+2. Click on the **Mint** button.
+3. Approve the transaction in your wallet.
+4. Wait for confirmation, and your NFT will be successfully minted!
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
+We welcome contributions! Please follow these steps:
+1. Fork the repository
+2. Create a new branch (`feature-branch`)
+3. Commit your changes
+4. Push to your branch
+5. Open a pull request
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
+This project is licensed under the MIT License.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contact
+For inquiries, reach out at [your email] or open an issue in the repository.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
